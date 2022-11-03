@@ -11,6 +11,8 @@ function draw() {
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaMinhaRaquete();
   movimentaRaqueteOponente();
+  /*moveRaqueteMultiplayer();
+  Função alternativa para jogar com outra pessoa*/
 }
 
 //varáveis da bolinha
@@ -68,4 +70,16 @@ function movimentaMinhaRaquete() {
 function movimentaRaqueteOponente() {
   velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteAltura / 2 - 30;
   yRaqueteOponente += velocidadeYOponente;
+}
+
+function moveRaqueteMultiplayer() {
+  if (keyIsDown(UP_ARROW) && yRaqueteOponente >= 10) {
+    yRaqueteOponente -= 10;
+  }
+  if (
+    keyIsDown(DOWN_ARROW) &&
+    yRaqueteOponente <= height - (raqueteAltura + 10)
+  ) {
+    yRaqueteOponente += 10;
+  }
 }
