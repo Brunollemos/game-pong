@@ -17,6 +17,7 @@ function draw() {
 
   colisaoRaqueteBiblioteca(xRaquete, yRaquete);
   colisaoRaqueteBiblioteca(xRaqueteOponente, yRaqueteOponente);
+  incluiPlacar();
 }
 
 //varáveis da bolinha
@@ -103,4 +104,17 @@ function colisaoRaqueteBiblioteca(x, y) {
   if (colidiu) {
     velocidadeXBolinha *= -1;
   }
+}
+
+function incluiPlacar() {
+  stroke(255);
+  textAlign(CENTER);
+  textSize(16);
+  fill(color(255, 140, 0));
+  rect(150, 10, 40, 20);
+  rect(450, 10, 40, 20);
+  fill(255);
+  text(meusPontos, 170, 26);
+  text(pontosDoOponente, 470, 26);
+  fill(255);
 }
