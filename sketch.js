@@ -9,6 +9,7 @@ function draw() {
   verificaColisaoBorda();
   mostraRaquete(xRaquete, yRaquete);
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
+  movimentaMinhaRaquete();
 }
 
 //varáveis da bolinha
@@ -51,4 +52,13 @@ function verificaColisaoBorda() {
 
 function mostraRaquete(x, y) {
   rect(x, y, raqueteLargura, raqueteAltura);
+}
+
+function movimentaMinhaRaquete() {
+  if (keyIsDown(87) && yRaquete >= 10) {
+    yRaquete -= 10;
+  }
+  if (keyIsDown(83) && yRaquete <= height - (raqueteAltura + 10)) {
+    yRaquete += 10;
+  }
 }
