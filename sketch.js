@@ -11,8 +11,12 @@ function draw() {
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaMinhaRaquete();
   movimentaRaqueteOponente();
+
   /*moveRaqueteMultiplayer();
   Função alternativa para jogar com outra pessoa*/
+
+  colisaoRaqueteBiblioteca(xRaquete, yRaquete);
+  colisaoRaqueteBiblioteca(xRaqueteOponente, yRaqueteOponente);
 }
 
 //varáveis da bolinha
@@ -30,6 +34,8 @@ let xRaquete = 5;
 let yRaquete = 150;
 let raqueteLargura = 10;
 let raqueteAltura = 90;
+
+let colidiu = false;
 
 //variáveis do oponente
 let xRaqueteOponente = 585;
@@ -81,5 +87,20 @@ function moveRaqueteMultiplayer() {
     yRaqueteOponente <= height - (raqueteAltura + 10)
   ) {
     yRaqueteOponente += 10;
+  }
+}
+
+function colisaoRaqueteBiblioteca(x, y) {
+  colidiu = collideRectCircle(
+    x,
+    y,
+    raqueteLargura,
+    raqueteAltura,
+    xBolinha,
+    yBolinha,
+    raio
+  );
+  if (colidiu) {
+    velocidadeXBolinha *= -1;
   }
 }
