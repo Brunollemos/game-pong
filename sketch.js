@@ -6,6 +6,7 @@ function draw() {
   background(0);
   mostraBolinha();
   movimentaBolinha();
+  verificaColisaoBorda();
 }
 
 //varáveis da bolinha
@@ -25,4 +26,13 @@ function mostraBolinha() {
 function movimentaBolinha() {
   xBolinha += velocidadeXBolinha;
   yBolinha += velocidadeYBolinha;
+}
+
+function verificaColisaoBorda() {
+  if (xBolinha + raio > width || xBolinha < raio) {
+    velocidadeXBolinha *= -1;
+  }
+  if (yBolinha + raio > height || yBolinha < raio) {
+    velocidadeYBolinha *= -1;
+  }
 }
