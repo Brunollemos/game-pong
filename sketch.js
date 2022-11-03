@@ -10,6 +10,7 @@ function draw() {
   mostraRaquete(xRaquete, yRaquete);
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaMinhaRaquete();
+  movimentaRaqueteOponente();
 }
 
 //varáveis da bolinha
@@ -31,6 +32,7 @@ let raqueteAltura = 90;
 //variáveis do oponente
 let xRaqueteOponente = 585;
 let yRaqueteOponente = 150;
+let velocidadeYOponente;
 
 function mostraBolinha() {
   circle(xBolinha, yBolinha, diametro);
@@ -61,4 +63,9 @@ function movimentaMinhaRaquete() {
   if (keyIsDown(83) && yRaquete <= height - (raqueteAltura + 10)) {
     yRaquete += 10;
   }
+}
+
+function movimentaRaqueteOponente() {
+  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteAltura / 2 - 30;
+  yRaqueteOponente += velocidadeYOponente;
 }
