@@ -7,6 +7,8 @@ function draw() {
   mostraBolinha();
   movimentaBolinha();
   verificaColisaoBorda();
+  mostraRaquete(xRaquete, yRaquete);
+  mostraRaquete(xRaqueteOponente, yRaqueteOponente);
 }
 
 //varáveis da bolinha
@@ -18,6 +20,16 @@ let raio = diametro / 2;
 //velocidade da bolinha
 let velocidadeXBolinha = 6;
 let velocidadeYBolinha = 6;
+
+//variáveis da raquete
+let xRaquete = 5;
+let yRaquete = 150;
+let raqueteLargura = 10;
+let raqueteAltura = 90;
+
+//variáveis do oponente
+let xRaqueteOponente = 585;
+let yRaqueteOponente = 150;
 
 function mostraBolinha() {
   circle(xBolinha, yBolinha, diametro);
@@ -35,4 +47,8 @@ function verificaColisaoBorda() {
   if (yBolinha + raio > height || yBolinha < raio) {
     velocidadeYBolinha *= -1;
   }
+}
+
+function mostraRaquete(x, y) {
+  rect(x, y, raqueteLargura, raqueteAltura);
 }
