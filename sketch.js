@@ -17,6 +17,7 @@ function draw() {
 
   colisaoRaqueteBiblioteca(xRaquete, yRaquete);
   colisaoRaqueteBiblioteca(xRaqueteOponente, yRaqueteOponente);
+  calculaChanceDeErrar();
   incluiPlacar();
   marcaPonto();
 }
@@ -47,6 +48,8 @@ let velocidadeYOponente;
 //placar do jogo
 let meusPontos = 0;
 let pontosDoOponente = 0;
+
+let chanceDeErrar = 0;
 
 function mostraBolinha() {
   circle(xBolinha, yBolinha, diametro);
@@ -130,5 +133,19 @@ function marcaPonto() {
   }
   if (xBolinha < 10) {
     pontosDoOponente += 1;
+  }
+}
+
+function calculaChanceDeErrar() {
+  if (pontosDoOponente >= meusPontos) {
+    chanceDeErrar += 1;
+    if (chanceDeErrar >= 39) {
+      chanceDeErrar = 40;
+    }
+  } else {
+    chanceDeErrar -= 1;
+    if (chanceDeErrar <= 35) {
+      chanceDeErrar = 35;
+    }
   }
 }
