@@ -18,6 +18,7 @@ function draw() {
   colisaoRaqueteBiblioteca(xRaquete, yRaquete);
   colisaoRaqueteBiblioteca(xRaqueteOponente, yRaqueteOponente);
   incluiPlacar();
+  marcaPonto();
 }
 
 //varáveis da bolinha
@@ -42,6 +43,10 @@ let colidiu = false;
 let xRaqueteOponente = 585;
 let yRaqueteOponente = 150;
 let velocidadeYOponente;
+
+//placar do jogo
+let meusPontos = 0;
+let pontosDoOponente = 0;
 
 function mostraBolinha() {
   circle(xBolinha, yBolinha, diametro);
@@ -117,4 +122,13 @@ function incluiPlacar() {
   text(meusPontos, 170, 26);
   text(pontosDoOponente, 470, 26);
   fill(255);
+}
+
+function marcaPonto() {
+  if (xBolinha > 590) {
+    meusPontos += 1;
+  }
+  if (xBolinha < 10) {
+    pontosDoOponente += 1;
+  }
 }
