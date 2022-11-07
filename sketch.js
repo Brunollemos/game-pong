@@ -1,5 +1,7 @@
 function preload() {
   trilha = loadSound("sounds/trilha.mp3");
+  raquetada = loadSound("sounds/raquetada.mp3");
+  ponto = loadSound("sounds/ponto.mp3");
 }
 
 function setup() {
@@ -53,6 +55,11 @@ let velocidadeYOponente;
 //placar do jogo
 let meusPontos = 0;
 let pontosDoOponente = 0;
+
+//sons do jogo
+let raquetada;
+let ponto;
+let trilha;
 
 let chanceDeErrar = 0;
 
@@ -116,6 +123,7 @@ function colisaoRaqueteBiblioteca(x, y) {
   );
   if (colidiu) {
     velocidadeXBolinha *= -1;
+    raquetada.play();
   }
 }
 
@@ -135,9 +143,11 @@ function incluiPlacar() {
 function marcaPonto() {
   if (xBolinha > 590) {
     meusPontos += 1;
+    ponto.play();
   }
   if (xBolinha < 10) {
     pontosDoOponente += 1;
+    ponto.play();
   }
 }
 
