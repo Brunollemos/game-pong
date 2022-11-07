@@ -1,5 +1,10 @@
+function preload() {
+  trilha = loadSound("sounds/trilha.mp3");
+}
+
 function setup() {
   createCanvas(600, 400);
+  trilha.loop();
 }
 
 function draw() {
